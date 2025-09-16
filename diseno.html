@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gise Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="general.css">
+</head>
+<body>
+    <!-- Header -->
+     <header>
+        <div class="container">
+            
+                <nav>
+            <div class="logo-container">
+                <img src="logo.png" alt="Gisenia Valero" class="profile-pic">
+                <a href="index.html" class="logo">Gise Portfolio</a>
+            </div>
+
+            <!-- Botón hamburguesa -->
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="habiliades.html">Habilidades</a></li>
+                <li><a href="diseno.html">Diseños</a></li>
+                <li><a href="proyectos.html">Actividades</a></li>
+                <li><a href="contacto.html">Contactos</a></li>
+                <li><a href="admin.html">Administrador</a></li>
+            </ul>
+        </nav>
+    </div>
+     </header>
+    <!-- Diseños -->
+     
+    <section id="designs">
+      <h2>Mis Diseños</h2>
+<div class="designs-gallery" id="design-gallery"></div>
+
+<script>
+  function loadDesigns() {
+    let designs = JSON.parse(localStorage.getItem("designs")) || [];
+    let container = document.getElementById("design-gallery");
+    container.innerHTML = "";
+    designs.forEach(d => {
+      if (d.type.startsWith("image")) {
+        container.innerHTML += `
+          <div class="design-item">
+            <img src="${d.file}" alt="${d.title}">
+            <div class="design-overlay">
+              <h3>${d.title}</h3>
+              <p>${d.desc}</p>
+            </div>
+          </div>`;
+      } else if (d.type.startsWith("video")) {
+        container.innerHTML += `
+          <div class="design-item">
+            <video controls src="${d.file}"></video>
+            <div class="design-overlay">
+              <h3>${d.title}</h3>
+              <p>${d.desc}</p>
+            </div>
+          </div>`;
+      }
+    });
+  }
+  loadDesigns();
+</script>
+
+    </section>
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("nav-links").classList.toggle("show");
+        });
+    </script>
+    <!-- Footer -->
+      <footer>
+    <div class="container">
+      <h3>Contactame</h3>
+      <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+      <div class="social-links">
+        <a href="https://walink.co/cecac8" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/1CY7yNGZvF/" target="_blank" title="TikTok"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/gisenia_valero_cainicela?igsh=MW5tcTYyZTUxejdicg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/gisenia-valero-cainicela-827954334/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p>giseniavalerocainicela@gmail.com</p>
+      <p>&copy; 2025 Gise Portfolio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* ===== Contacto ===== */
+#contacto {
+  padding: 80px 20px;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 120px auto 40px auto;
+  text-align: center;
+}
+
+#contacto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--light-blue);
+}
+
+form {
+  display: grid;
+  gap: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: rgb(0, 51, 102);
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+input:focus, textarea:focus {
+  background: rgba(0, 51, 102, 0.5);
+}
+
+textarea {
+  resize: none;
+  min-height: 150px;
+}
+
+button {
+  padding: 15px;
+  background: linear-gradient(45deg, var(--electric-blue), var(--light-blue));
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 102, 255, 0.6);
+}
+
+/* Redes sociales */
+.social {
+  margin-top: 50px;
+}
+
+.social h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--light-blue);
+}
+
+.social p {
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+.social-links a {
+  margin: 0 10px;
+  font-size: 1.8rem;
+  color: var(--light-blue);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--electric-blue);
+  transform: scale(1.2);
+}
+
+/* Toast */
+#toast {
+  visibility: hidden;
+  min-width: 300px;
+  background: #0a3d62;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 60px;
+}

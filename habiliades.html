@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gise Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="general.css">
+</head>
+<body>
+    <!-- Header -->
+         <header>
+        <div class="container">
+            
+                <nav>
+            <div class="logo-container">
+                <img src="logo.png" alt="Gisenia Valero" class="profile-pic">
+                <a href="index.html" class="logo">Gise Portfolio</a>
+            </div>
+
+            <!-- Botón hamburguesa -->
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="sobremi.html">Sobre Mi</a></li>
+                <li><a href="diseno.html">Diseños</a></li>
+                <li><a href="proyectos.html">Actividades</a></li>
+                <li><a href="contacto.html">Contactos</a></li>
+                <li><a href="admin.html">Administrador</a></li>
+            </ul>
+        </nav>
+    </div>
+     </header>
+    <!-- Habilidades -->
+    <section id="skills">
+        <div class="container">
+            <h2>Mis Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Diseño UI/UX</h3>
+                    <p>Creación de interfaces intuitivas y experiencias de usuario excepcionales.</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <h3>Desarrollo Frontend</h3>
+                    <p>HTML, CSS, JavaScript y frameworks modernos como React y Vue.</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Diseño Responsive</h3>
+                    <p>Diseños adaptables que funcionan perfectamente en cualquier dispositivo.</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño Gráfico</h3>
+                    <p>Creatividad aplicada al diseño de elementos visuales atractivos.</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <h3>Desarrollo Backend</h3>
+                    <p>Node.js, PHP y bases de datos para soluciones completas.</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Optimization</h3>
+                    <p>Optimización de sitios web para mejores posiciones en buscadores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("nav-links").classList.toggle("show");
+        });
+    </script>
+
+
+    <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h3>Contactame</h3>
+      <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+      <div class="social-links">
+        <a href="https://walink.co/cecac8" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/1CY7yNGZvF/" target="_blank" title="TikTok"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/gisenia_valero_cainicela?igsh=MW5tcTYyZTUxejdicg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/gisenia-valero-cainicela-827954334/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p>giseniavalerocainicela@gmail.com</p>
+      <p>&copy; 2025 Gise Portfolio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

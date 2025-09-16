@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+        <!-- Header -->
+     <header>
+        <div class="container">
+            
+                <nav>
+            <div class="logo-container">
+                <img src="logo.png" alt="Gisenia Valero" class="profile-pic">
+                <a href="index.html" class="logo">Gise Portfolio</a>
+            </div>
+
+            <!-- Botón hamburguesa -->
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="sobremi.html">Sobre Mi</a></li>
+                <li><a href="habiliades.html">Habilidades</a></li>
+                <li><a href="diseno.html">Diseños</a></li>
+                <li><a href="proyectos.html">Actividades</a></li>
+                <li><a href="contacto.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </div>
+     </header>
+  <div class="container">
+    <!-- Login -->
+    <div id="login-section">
+      <h2>Acceso Administrador</h2>
+      <input type="text" id="username" placeholder="Usuario">
+      <input type="password" id="password" placeholder="Contraseña">
+      <button onclick="login()">Ingresar</button>
+      <p id="login-msg" style="color:rgb(47, 0, 255);"></p>
+    </div>
+
+    <!-- Panel -->
+<div id="admin-panel" style="display:none;">
+  <h2>Bienvenida Gisenia</h2>
+
+  <div class="admin-forms">
+    <!-- Sección Diseños -->
+    <section>
+      <h3>Agregar Diseño</h3>
+      <input type="text" id="design-title" placeholder="Título">
+      <input type="text" id="design-desc" placeholder="Descripción">
+      <input type="file" id="design-file" accept="image/*,video/*">
+      <button onclick="addDesign()">Agregar Diseño</button>
+      <div id="design-list"></div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section>
+      <h3>Agregar Proyecto</h3>
+      <input type="text" id="project-title" placeholder="Título">
+      <input type="text" id="project-desc" placeholder="Descripción">
+      <input type="file" id="project-file" accept=".pdf,.zip">
+      <button onclick="addProject()">Agregar Proyecto</button>
+      <div id="project-list"></div>
+    </section>
+  </div>
+</div>
+
+
+  <script>
+    function addDesign() {
+      const title = document.getElementById("design-title").value;
+      const desc = document.getElementById("design-desc").value;
+      if(title && desc){
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `<h4>${title}</h4><p>${desc}</p>`;
+        document.getElementById("design-list").appendChild(card);
+        document.getElementById("design-title").value="";
+        document.getElementById("design-desc").value="";
+      }
+    }
+
+    function addProject() {
+      const title = document.getElementById("project-title").value;
+      const desc = document.getElementById("project-desc").value;
+      if(title && desc){
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `<h4>${title}</h4><p>${desc}</p>`;
+        document.getElementById("project-list").appendChild(card);
+        document.getElementById("project-title").value="";
+        document.getElementById("project-desc").value="";
+      }
+    }
+  </script>
+    </div>
+  </div>
+
+  <script>
+    // --- LOGIN ---
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user === "gisenia" && pass === "123") {
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("admin-panel").style.display = "block";
+        loadData();
+      } else {
+        document.getElementById("login-msg").innerText = "Credenciales incorrectas";
+      }
+    }
+
+    // --- GUARDAR DISEÑOS ---
+    function addDesign() {
+      let title = document.getElementById("design-title").value;
+      let desc = document.getElementById("design-desc").value;
+      let file = document.getElementById("design-file").files[0];
+
+      if (!title || !desc || !file) return alert("Completa todos los campos");
+
+      let reader = new FileReader();
+      reader.onload = function(e) {
+        let designs = JSON.parse(localStorage.getItem("designs")) || [];
+        designs.push({ title, desc, file: e.target.result, type: file.type });
+        localStorage.setItem("designs", JSON.stringify(designs));
+        loadData();
+      }
+      reader.readAsDataURL(file);
+    }
+
+    // --- GUARDAR PROYECTOS ---
+    function addProject() {
+      let title = document.getElementById("project-title").value;
+      let desc = document.getElementById("project-desc").value;
+      let file = document.getElementById("project-file").files[0];
+
+      if (!title || !desc || !file) return alert("Completa todos los campos");
+
+      let reader = new FileReader();
+      reader.onload = function(e) {
+        let projects = JSON.parse(localStorage.getItem("projects")) || [];
+        projects.push({ title, desc, file: e.target.result, name: file.name });
+        localStorage.setItem("projects", JSON.stringify(projects));
+        loadData();
+      }
+      reader.readAsDataURL(file);
+    }
+
+    // --- MOSTRAR DATOS EN EL PANEL ---
+    function loadData() {
+      // Diseños
+      let designs = JSON.parse(localStorage.getItem("designs")) || [];
+      let dList = document.getElementById("design-list");
+      dList.innerHTML = "";
+      designs.forEach((d, i) => {
+        dList.innerHTML += `
+          <div>
+            <b>${d.title}</b> - ${d.desc}
+            <button onclick="deleteDesign(${i})">Eliminar</button>
+          </div>`;
+      });
+
+      // Proyectos
+      let projects = JSON.parse(localStorage.getItem("projects")) || [];
+      let pList = document.getElementById("project-list");
+      pList.innerHTML = "";
+      projects.forEach((p, i) => {
+        pList.innerHTML += `
+          <div>
+            <b>${p.title}</b> - ${p.desc}
+            <button onclick="deleteProject(${i})">Eliminar</button>
+          </div>`;
+      });
+    }
+
+    // --- ELIMINAR ---
+    function deleteDesign(index) {
+      let designs = JSON.parse(localStorage.getItem("designs")) || [];
+      designs.splice(index, 1);
+      localStorage.setItem("designs", JSON.stringify(designs));
+      loadData();
+    }
+
+    function deleteProject(index) {
+      let projects = JSON.parse(localStorage.getItem("projects")) || [];
+      projects.splice(index, 1);
+      localStorage.setItem("projects", JSON.stringify(projects));
+      loadData();
+    }
+  </script>
+</body>
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+</script>
+
+</html>

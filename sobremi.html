@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gise Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="general.css">
+</head>
+<body>
+    <!-- Header -->
+     <header>
+        <div class="container">
+            
+                <nav>
+            <div class="logo-container">
+                <img src="logo.png" alt="Gisenia Valero" class="profile-pic">
+                <a href="index.html" class="logo">Gise Portfolio</a>
+            </div>
+
+            <!-- Botón hamburguesa -->
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="habiliades.html">Habilidades</a></li>
+                <li><a href="diseno.html">Diseños</a></li>
+                <li><a href="proyectos.html">Actividades</a></li>
+                <li><a href="contacto.html">Contactos</a></li>
+                <li><a href="admin.html">Administrador</a></li>
+            </ul>
+        </nav>
+    </div>
+     </header>
+    <!-- Sobre Mí -->
+    <section id="about">
+        <div class="container">
+            <h2>Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Mi Historia</h3>
+                    <p>Soy una profesional apasionada por el diseño y desarrollo web, con una formación sólida y experiencia en la creación de soluciones digitales innovadoras. Mi objetivo es combinar estética y funcionalidad para crear experiencias de usuario excepcionales.</p>
+                    <p>Me considero una persona creativa, detallista y orientada a resultados, siempre buscando aprender nuevas tecnologías y tendencias para mantenerme a la vanguardia en el campo del diseño y desarrollo web.</p>
+                </div>
+                <div class="about-text">
+                    <h3>Misión & Visión</h3>
+                    <p><strong>Misión:</strong> Crear soluciones digitales que no solo cumplan con los requisitos funcionales, sino que también inspiren y generen una conexión emocional con los usuarios.</p>
+                    <p><strong>Visión:</strong> Ser reconocida como una referente en el campo del diseño y desarrollo web, contribuyendo a proyectos innovadores que marquen la diferencia en la industria digital.</p>
+                    
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <h4><i class="fas fa-star"></i> Excelencia</h4>
+                            <p>Busco la perfección en cada detalle de mis proyectos.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4><i class="fas fa-lightbulb"></i> Innovación</h4>
+                            <p>Siempre explorando nuevas ideas y approaches.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4><i class="fas fa-handshake"></i> Colaboración</h4>
+                            <p>Trabajo en equipo para lograr los mejores resultados.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4><i class="fas fa-heart"></i> Pasión</h4>
+                            <p>Hago mi trabajo con amor y dedicación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("nav-links").classList.toggle("show");
+        });
+    </script>
+    <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h3>Contactame</h3>
+      <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+      <div class="social-links">
+        <a href="https://walink.co/cecac8" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/1CY7yNGZvF/" target="_blank" title="TikTok"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/gisenia_valero_cainicela?igsh=MW5tcTYyZTUxejdicg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/gisenia-valero-cainicela-827954334/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p>giseniavalerocainicela@gmail.com</p>
+      <p>&copy; 2025 Gise Portfolio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

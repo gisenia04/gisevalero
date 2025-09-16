@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gisenia Valero | Diseño Gráfico & Programación Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="ESTILO.CSS">
+</head>
+<body>
+    <section id="home" class="home">
+        <div class="particles" id="particles"></div>
+        <div class="overlay">
+            <div class="home-content">
+                <img src="logo.png" alt="Gisenia Valero" class="profile-pic">
+                <h1>Hola, soy <span>Gisenia Valero</span></h1>
+                <h2>Estudiante de Diseño & Programación Web</h2>
+                <p>
+                    Apasionada por unir creatividad y tecnología en cada proyecto digital. Me enfoco en crear soluciones visuales atractivas y funcionales, combinando diseño innovador con experiencias web eficientes que conectan con los usuarios y destacan por su originalidad.
+                </p>
+                <div class="buttons">
+                    <a href="sobremi.html" class="btn">
+                        <i class="fas fa-user"></i> Sobre mi
+                    </a>
+                    <a href="habiliades.html" class="btn secondary">
+                        <i class="fas fa-code"></i> Habilidades
+                    </a>
+                    <a href="diseno.html" class="btn">
+                        <i class="fas fa-paint-brush"></i> Ver Mis Diseños
+                    </a>
+                    <a href="proyectos.html" class="btn secondary">
+                        <i class="fas fa-laptop"></i> Proyectos Web
+                    </a>
+                </div>
+                <div class="social">
+                    <a href="https://walink.co/cecac8" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1CY7yNGZvF/" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gisenia_valero_cainicela?igsh=MW5tcTYyZTUxejdicg==" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gisenia-valero-cainicela-827954334/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Crear efecto de partículas
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio entre 3 y 8px
+                const size = Math.random() * 5 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición horizontal aleatoria
+                particle.style.left = `${Math.random() * 100}vw`;
+                
+                // Retraso de animación aleatorio
+                particle.style.animationDelay = `${Math.random() * 15}s`;
+                
+                // Duración de animación aleatoria
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>

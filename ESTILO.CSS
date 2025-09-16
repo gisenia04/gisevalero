@@ -1,0 +1,233 @@
+:root {
+    --primary: #00BFFF;
+    --primary-dark: #007acc;
+    --secondary: #ffffff;
+    --text-light: #f8f8f8;
+    --text-gray: #e0e0e0;
+    --overlay: rgba(0, 0, 50, 0.6);
+    --card-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 16px; /* base */
+}
+
+/* ==== HOME ==== */
+.home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+}
+
+/* Fondo slider */
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slider 20s infinite;
+    z-index: -2;
+}
+
+@keyframes slider {
+    0%   { background-image: url('1.jpg'); }
+    33%  { background-image: url('2.jpg'); }
+    66%  { background-image: url('3.jpg'); }
+    100% { background-image: url('4.jpg'); }
+}
+
+/* Filtro encima */
+.overlay {
+    background: var(--overlay);
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenido principal */
+.home-content {
+    position: relative;
+    z-index: 1;
+}
+
+.home-content h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.home-content h1 span {
+    color: var(--primary);
+    position: relative;
+}
+
+.home-content h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.home-content h2 {
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    font-weight: 400;
+    margin: 0.5rem 0 1.5rem;
+    color: var(--text-gray);
+}
+
+.home-content p {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    margin-bottom: 2rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+/* Imagen perfil */
+.profile-pic {
+    width: clamp(100px, 25vw, 160px);
+    height: clamp(100px, 25vw, 160px);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    text-decoration: none;
+    background: var(--primary);
+    color: var(--secondary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
+    font-size: clamp(0.85rem, 2vw, 1rem);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
+}
+
+.btn.secondary {
+    background: var(--secondary);
+    color: var(--primary-dark);
+}
+
+.btn.secondary:hover {
+    background: #f0f0f0;
+    color: var(--primary-dark);
+}
+
+/* Redes sociales */
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(35px, 8vw, 45px);
+    height: clamp(35px, 8vw, 45px);
+    border-radius: 50%;
+    background: var(--card-bg);
+    color: var(--secondary);
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social a:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* Partículas */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 15s infinite linear;
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .overlay {
+        padding: 1rem;
+    }
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        width: 100%;
+        max-width: 220px;
+        justify-content: center;
+    }
+}

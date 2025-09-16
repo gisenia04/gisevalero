@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Gise Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="general.css">
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ====== TOAST ====== */
+    #toast {
+      visibility: hidden;
+      min-width: 300px;
+      max-width: 90%;
+      background: #0a3d62;
+      color: #fff;
+      text-align: center;
+      border-radius: 10px;
+      padding: 15px;
+      position: fixed;
+      z-index: 9999;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.5s, bottom 0.5s;
+    }
+
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+      bottom: 60px;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo-container">
+          <img src="logo.png" alt="Gisenia Valero" class="profile-pic">
+          <a href="index.html" class="logo">Gise Portfolio</a>
+        </div>
+        <ul class="nav-links">
+          
+          <li><a href="sobremi.html">Sobre Mí</a></li>
+          <li><a href="habiliades.html">Habilidades</a></li>
+          <li><a href="diseno.html">Diseños</a></li>
+          <li><a href="proyectos.html">Actividades</a></li>
+          <li><a href="admin.html">Administrador</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+      </nav>
+    </div>
+  </header>
+
+<!-- Contacto -->
+ 
+<section id="contacto" class="contact-section">
+  <h2>Contáctame</h2>
+  <form id="form-contacto" class="contact-form">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+    <button type="submit">Enviar Mensaje</button>
+  </form>
+</section>
+
+
+  <!-- Toast de confirmación -->
+  <div id="toast">✅ Tu mensaje fue enviado. Pronto nos comunicaremos contigo.</div>
+
+  <footer>
+    <div class="container">
+      <h3>Contactame</h3>
+      <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+      <div class="social-links">
+        <a href="https://walink.co/cecac8" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/1CY7yNGZvF/" target="_blank" title="TikTok"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/gisenia_valero_cainicela?igsh=MW5tcTYyZTUxejdicg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/gisenia-valero-cainicela-827954334/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p>giseniavalerocainicela@gmail.com</p>
+      <p>&copy; 2025 Gise Portfolio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menú hamburguesa
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav-links");
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
+
+    // Formulario con mensaje flotante
+    const form = document.getElementById("form-contacto");
+    const toast = document.getElementById("toast");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Evita recargar la página
+
+      form.reset(); // limpia el formulario
+
+      // Mostrar el toast después de enviar
+      toast.classList.add("show");
+
+      // Ocultar después de 4 segundos
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
